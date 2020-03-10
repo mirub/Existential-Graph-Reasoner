@@ -1,17 +1,6 @@
-Members of the team: Banu Miruna-Elena, Descultu Cristian Petrisor
-Group: 311CA
+# Existential Graph Reasoner
 
-For this homework, rather than splitting the functions between
-eachother, we decided to meet and work together on this code
-so that we give eachother insight and different points of view
-on the same problem. Thus, the functions have been solved by
-both of us putting together ideas, deciding what could be more
-a optimal approach of the matter and trying to debug the code
-when problems arised.
-
-We have modified the '.h' file since we used auxiliary functions
-for the ones we used recursivity for.
-
+Project done in a team with a colleague
 
 possible_double_cuts():
 
