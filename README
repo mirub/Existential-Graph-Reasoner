@@ -1,0 +1,108 @@
+Members of the team: Banu Miruna-Elena, Descultu Cristian Petrisor
+Group: 311CA
+
+For this homework, rather than splitting the functions between
+eachother, we decided to meet and work together on this code
+so that we give eachother insight and different points of view
+on the same problem. Thus, the functions have been solved by
+both of us putting together ideas, deciding what could be more
+a optimal approach of the matter and trying to debug the code
+when problems arised.
+
+We have modified the '.h' file since we used auxiliary functions
+for the ones we used recursivity for.
+
+
+possible_double_cuts():
+
+We thought of many ways to implement this function and had a
+little bit more of a hard time with it since it was the first
+one we decided to work on. Then, after spending some time on
+understanding the already-implemented functions, we thought
+that we could try using recursivity similarily to the get_paths_to
+function.
+
+Thus, we created an auxiliary function that would modify a vector
+of vectors 'paths' and a vector 'current'. 'paths' contains the
+positions that would be returned by the non-void function in the
+end, and 'current' is the vector that bears the indexes of the cuts
+leading to the current node.
+
+For the current node, we went through every subgraph and added the 
+index of the cut to the vector 'current'. Furthermore, if it
+was a double cut, we added the 'current' vector to the 'paths'
+vector. Then, we used the recursivity to descend on each subgraph. 
+
+After each subgraph had been visited or if the node did not have any,
+we deleted the last cut from the 'current' vector as the recursivity
+ascended on the subgraphs.
+
+In the non-void function, we created the 'current' and the 'paths'
+vectors and we called the auxiliary function to modify them, then
+returned the final result.
+
+
+double_cut(where):
+
+For this function, we saw it more relevant to implement it iteratively.
+Thus, we went through the where vector with a pointer, 'node', until
+we reached the node above the double cut position. Then, to eliminate
+the unnecessary cuts, we realised that we had to add the subgraphs 
+and the atoms of the node 2 cuts below to the current node.
+
+Thereby, we used another pointer, 'aux', to descend to the said position,
+then we added its subgraphs and atoms to the position 2 cuts above.
+To have the double cut operation done, in the end we deleted the subgraph
+we had on the 'node' position previously and returned the graph.
+
+
+possible_erasures():
+
+For this function we worked similarily to the possible_double_cuts one,
+the main idea being the same, having just adapted the condition that the
+current node could bear an erasure instead of a double cut.
+
+Thus, for the current node we went through both the subgraphs and the
+atoms and added the cut to the 'current' vector. We added every
+'current' vector to the paths vector if the current node was on an
+even level, but we deleted the entry if it was not an eligible erasure
+condition.
+
+We called the recursivity in case the current node was a subgraph and we
+deleted the last cut from the 'current' in case the node was an atom or
+we had visited every subgraph.
+
+In the non-void function, we created the 'current' and the 'paths'
+vectors and we called the auxiliary function to modify them, then
+returned the final result.
+
+
+erase(where):
+
+For this function, we went through the where vector with the pointer
+'node' and placed it above the erase position. If the following cut
+was on a subgraph, we deleted the entry on the index in the subgraph
+vector, otherwise we deleted the atom on the index-subgraphs.size()
+position in the atoms vector.
+
+
+possible_deiterations():
+
+For this function, we realised that, to get the positions we needed,
+we had to search each subgraph of the current node in the others and
+every atom in each subgraph. We created an auxiliary function to modify
+the 'paths' vector.
+
+Thus, we did exactly this and if the current subgraph/atom had been
+found in the other subgraphs, we added to the 'paths' vector every
+possible way to the current node returned by the get_paths_to
+function.
+
+In the non-void function, we created the 'current' and the 'paths'
+vectors and we called the auxiliary function to modify them, then
+returned the final result.
+
+deiterate(where):
+
+Since this operation is exactly the same as the erase one, we did the
+same as in that function.
